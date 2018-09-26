@@ -6,61 +6,64 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>timesheet</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
     <script src="https://www.gstatic.com/firebasejs/5.5.1/firebase.js"></script>
 </head>
-<body class="container bg-light">
-    <header class="jumbotron bg-dark">
-        <h1 class="text-center text-light">Gotta Train to Catch?</h1>
-    </header>
-    <div class="card text-left border-info mb-4">
-        <div class="card-header bg-info text-white">
-            Current Train Schedule
-        </div>
-        <table class="table card-body">
-            <thead class="p-2">
-                <tr>
-                    <th scope="col">Train Name</th>
-                    <th scope="col">Destination</th>
-                    <th scope="col">Frequency (min)</th>
-                    <th scope="col">Next Arrival</th>
-                    <th scope="col">Minutes Away</th>
-                </tr>
-            </thead>
-            <tbody id="tableOutput">
+<body class="bg-dark">
+    <div class="container">
+        <header class="jumbotron bg-primary">
+            <h1 class="text-center text-light">Gotta Train to Catch?</h1>
+        </header>
+        <div class="card text-left border-primary mb-4">
+            <div class="card-header bg-primary text-white">
+                Current Train Schedule
+            </div>
+            <table class="table card-body">
+                <thead class="p-2">
+                    <tr>
+                        <th scope="col">Train Name</th>
+                        <th scope="col">Destination</th>
+                        <th scope="col">Frequency (min)</th>
+                        <th scope="col">Next Arrival</th>
+                        <th scope="col">Minutes Away</th>
+                    </tr>
+                </thead>
+                <tbody id="tableOutput">
 
-            </tbody>
-        </table>
-    </div>
-    <div class="card border-info mb-4">
-        <div class="card-header bg-info text-white">
-            Add Train
-        </div class="card-body">
-            <div class="p-2">
-                <h5 class="card-title">Train name</h5>
-                <div class="input-group">
-                <input id="name" type="text" class="form-control" placeholder="">
+                </tbody>
+            </table>
+        </div>
+        <div class="card border-primary mb-4">
+            <div class="card-header bg-primary text-white">
+                Add Train
+            </div class="card-body">
+                <div class="p-2">
+                    <h6 class="card-title">Train name</h6>
+                    <div class="input-group">
+                    <input id="name" type="text" class="form-control" placeholder="">
+                    </div>
                 </div>
-            </div>
-            <div class="p-2">
-                <h5 class="card-title">Destination</h5>
-                <div class="input-group">
-                <input id="destination" type="text" class="form-control" placeholder="">
+                <div class="p-2">
+                    <h6 class="card-title">Destination</h6>
+                    <div class="input-group">
+                    <input id="destination" type="text" class="form-control" placeholder="">
+                    </div>
+                </div>        
+                <div class="p-2">
+                    <h6 class="card-title">First Train Time (HH:MM - Military Time)</h6>
+                    <div class="input-group">
+                    <input id="trainTime" type="text" class="form-control" placeholder="">
+                    </div>
                 </div>
-            </div>        
-            <div class="p-2">
-                <h5 class="card-title">First Train Time (HH:MM - Military Time)</h5>
-                <div class="input-group">
-                <input id="trainTime" type="text" class="form-control" placeholder="">
+                <div class="p-2">
+                    <h6 class="card-title">Frequency (min)</h6>
+                    <div class="input-group">
+                    <input id="frequency" type="text" class="form-control" placeholder="">
+                    </div>
                 </div>
-            </div>
-            <div class="p-2">
-                <h5 class="card-title">Frequency (min)</h5>
-                <div class="input-group">
-                <input id="frequency" type="text" class="form-control" placeholder="">
+                <div class="p-2">
+                    <a class="btn float-right btn-primary" href="#" id="submit">Submit</a>
                 </div>
-            </div>
-            <div class="p-2">
-                <a class="btn float-right btn-primary" href="#" id="submit">Submit</a>
             </div>
         </div>
     </div>

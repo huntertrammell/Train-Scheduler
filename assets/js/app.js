@@ -39,7 +39,6 @@ $('#submit').on('click', function(){
 database.ref().on("child_added", function(childSnapshot) {
     $('#tableOutput').append('<tr><td scope="col">' + childSnapshot.val().name + '</td>' 
     + '<td scope="col">' + childSnapshot.val().destination + '</td>'
-    + '<td scope="col">' + childSnapshot.val().trainTime + '</td>'
     + '<td scope="col">' + childSnapshot.val().frequency + '</td>'
     + '<td scope="col">' + nextTrain + '</td>'
     + '<td scope="col">' + waitTime + '</td>')
