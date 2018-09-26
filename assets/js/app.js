@@ -17,21 +17,28 @@
   var frequency = "";
   var nextTrain;
   var waitTime;
-  //var rd = moment(trainTime, DATE_FORMAT);
+  var now = moment().format("X");
+  console.log(now)
 
 $('#submit').on('click', function(){
     event.preventDefault();
     name = $("#name").val().trim();
     destination = $("#destination").val().trim();
     trainTime = $("#trainTime").val().trim();
+    trainUnix = moment(trainTime).format('X')
     frequency = $("#frequency").val().trim();
+    result = now+trainUnix
+    nextTrain = moment(result).format('hh:mm')
 
-    console.log(name, destination, trainTime, frequency)
+    console.log(name, destination, trainTime, frequency, nextTrain)
     database.ref().push({
         name: name,
         destination: destination,
         trainTime: trainTime,
-        frequency: frequency
+        frequency: frequency,
+        trainUnix: trainUnix,
+        result: result,
+        nextTrain: nextTrain
       });
     console.log(name, destination, trainTime, frequency)
 })
@@ -40,7 +47,7 @@ database.ref().on("child_added", function(childSnapshot) {
     $('#tableOutput').append('<tr><td scope="col">' + childSnapshot.val().name + '</td>' 
     + '<td scope="col">' + childSnapshot.val().destination + '</td>'
     + '<td scope="col">' + childSnapshot.val().frequency + '</td>'
-    + '<td scope="col">' + nextTrain + '</td>'
+    + '<td scope="col">' + childSnapshot.val().nextTrain + '</td>'
     + '<td scope="col">' + waitTime + '</td>')
 })
 
