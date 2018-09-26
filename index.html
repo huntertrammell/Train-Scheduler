@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>timesheet</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://www.gstatic.com/firebasejs/5.5.1/firebase.js"></script>
+</head>
+<body class="container bg-light">
+    <header class="jumbotron bg-dark">
+        <h1 class="text-center text-light">Gotta Train to Catch?</h1>
+    </header>
+    <div class="card text-left border-info mb-4">
+        <div class="card-header bg-info text-white">
+            Current Train Schedule
+        </div>
+        <table class="table card-body">
+            <thead class="p-2">
+                <tr>
+                    <th scope="col">Train Name</th>
+                    <th scope="col">Destination</th>
+                    <th scope="col">Frequency (min)</th>
+                    <th scope="col">Next Arrival</th>
+                    <th scope="col">Minutes Away</th>
+                </tr>
+            </thead>
+            <tbody id="tableOutput">
+
+            </tbody>
+        </table>
+    </div>
+    <div class="card border-info mb-4">
+        <div class="card-header bg-info text-white">
+            Add Train
+        </div class="card-body">
+            <div class="p-2">
+                <h5 class="card-title">Train name</h5>
+                <div class="input-group">
+                <input id="name" type="text" class="form-control" placeholder="">
+                </div>
+            </div>
+            <div class="p-2">
+                <h5 class="card-title">Destination</h5>
+                <div class="input-group">
+                <input id="destination" type="text" class="form-control" placeholder="">
+                </div>
+            </div>        
+            <div class="p-2">
+                <h5 class="card-title">First Train Time (HH:MM - Military Time)</h5>
+                <div class="input-group">
+                <input id="trainTime" type="text" class="form-control" placeholder="">
+                </div>
+            </div>
+            <div class="p-2">
+                <h5 class="card-title">Frequency (min)</h5>
+                <div class="input-group">
+                <input id="frequency" type="text" class="form-control" placeholder="">
+                </div>
+            </div>
+            <div class="p-2">
+                <a class="btn float-right btn-primary" href="#" id="submit">Submit</a>
+            </div>
+        </div>
+    </div>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+<script src="assets/js/app.js" type="text/javascript"></script>
+</body>
+</html>
