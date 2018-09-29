@@ -17,7 +17,7 @@
   var frequency = "";
   var nextTrain;
   var waitTime;
-  var now = moment()
+  var now = moment().format('HH:mm')
 
 $('#submit').on('click', function(){
     event.preventDefault();
@@ -25,18 +25,28 @@ $('#submit').on('click', function(){
     destination = $("#destination").val().trim();
     trainTime = $("#trainTime").val().trim();
     frequency = $("#frequency").val().trim();
-    nextTrain = moment(trainTime, 'HH:mm').add(frequency, 'm').format('HH:mm')
-    waitCalc = moment(now, 'HH:mm').subtract(nextTrain, 'HH:mm').format('HH:mm')
-    waitTime = moment.duration(waitCalc, 'HH:mm').asMinutes()
-    //cannot figure out how to equate repeating intervals to make it repeat every 15 minutes
-    //have next train time set, but it just adds 15 mintes onto time
-    //have wait until next train steup but it doesnt actualy do anything
+    firstTrain = moment(trainTime, 'HH:mm').format('HH:mm')
+    nextTrain;
+    //compare current time vs. train time to see what time is greater (past v present)
+    //if in the future will need to add time to get to the current time
+    //if in the past will need just submit the first
+    //{hours: var hours,minutes: var minutes}
+    //figure out how many times interval can happen % 0 until current time
+    //if section has a remainder then will need to go 1 interval past current time
+    //wait time would just be the remainder
+    if (moment(now).diff(firstTrain) < 0) {
+      var nextTrain = firstTrain
+    } else {
+      var dif = moment(now).diff(firstTrain)
+      if (frequency / dif % !0){
+        var nextTrain = dif + frequency
+        var waitTime = 0
+      } else {
+        var waitTime = frequency % dif
+      }
+    }
+
     
-    console.log(trainTime)
-    console.log(frequency)
-    console.log(nextTrain)
-    console.log(waitTime)
-    console.log(now)
 
   
     database.ref().push({
