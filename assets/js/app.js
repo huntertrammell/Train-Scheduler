@@ -31,9 +31,6 @@ $('#submit').on('click', function(){
     //cannot figure out how to equate repeating intervals to make it repeat every 15 minutes
     //have next train time set, but it just adds 15 mintes onto time
     //have wait until next train steup but it doesnt actualy do anything
-    //documentation is not the best and only went over this for 15 minutes in class. 
-    //turning in partial project and will seek extra help as i am not understanding this library w/o further instruction
-    //with this homework assignment + class project having trouble handling both projects due within a few days of eachother
     
     console.log(trainTime)
     console.log(frequency)
